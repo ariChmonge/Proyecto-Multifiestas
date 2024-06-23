@@ -1,4 +1,4 @@
-package proyecto.multifiestas;
+package proyecto.multifiestas.RegistroUsuarios;
 
 import javax.swing.JOptionPane;
 import proyecto.multifiestas.RegistroUsuarios.PilaUsuarios;
