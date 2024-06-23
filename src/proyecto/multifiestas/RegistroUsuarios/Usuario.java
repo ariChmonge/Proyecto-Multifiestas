@@ -1,4 +1,4 @@
-package proyecto.multifiestas;
+package proyecto.multifiestas.RegistroUsuarios;
 public class Usuario {
     //Chao
    

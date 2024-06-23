@@ -1,4 +1,5 @@
-package proyecto.multifiestas;
+package proyecto.multifiestas.RegistroUsuarios;
+
 public class NodoUsuario {
     //Atributos Nodo
     private Usuario usuario;
