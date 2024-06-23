@@ -1,6 +1,6 @@
 package proyecto.multifiestas;
 public class NodoUsuario {
-    //Atributos
+    //Atributos Nodo
     private Usuario usuario;
     private NodoUsuario siguiente;
     
