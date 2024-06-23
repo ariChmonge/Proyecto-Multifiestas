@@ -1,5 +1,6 @@
 package proyecto.multifiestas;
 public class Usuario {
+    //Chao
    
     //Atributos
     protected String nombre;
