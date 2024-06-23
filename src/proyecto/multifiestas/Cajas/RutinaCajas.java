@@ -1,12 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package proyecto.multifiestas.Cajas;
 
-/**
- *
- * @author Jimena Torres
+/*
+Módulo 4: Cajas
+
+En este módulo procederá a sumar los
+ingresos del día y mostrarlos junto con el
+listado de asientos vendidos.
+
+1. Se debe escoger la estructura que se desee y almacenar los
+ingresos del día, registrando fecha y monto de ingresos. 
  */
 public class RutinaCajas {
     

@@ -4,12 +4,14 @@
  */
 package proyecto.multifiestas;
 
+import proyecto.multifiestas.RegistroUsuarios.PilaUsuarios;
+
 /**
  *
  * @author Jimena Torres
  */
 public class InterfazRegistarUsuario extends javax.swing.JFrame {
-
+    private PilaUsuarios p= new PilaUsuarios();
     /**
      * Creates new form InterfazRegistarUsuario
      */
@@ -68,6 +70,11 @@ public class InterfazRegistarUsuario extends javax.swing.JFrame {
         jLabel6.setText("Contraseña:");
 
         jButton1.setText("Registrar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -139,6 +146,10 @@ public class InterfazRegistarUsuario extends javax.swing.JFrame {
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        p.agregarUsuario();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
