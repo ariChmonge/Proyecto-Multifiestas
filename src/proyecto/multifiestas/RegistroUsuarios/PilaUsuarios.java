@@ -1,6 +1,5 @@
 package proyecto.multifiestas.RegistroUsuarios;
 
-import proyecto.multifiestas.RegistroUsuarios.NodoUsuario;
 import javax.swing.JOptionPane;
 
 public class PilaUsuarios {

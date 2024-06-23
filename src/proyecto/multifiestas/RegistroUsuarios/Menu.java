@@ -1,7 +1,6 @@
 package proyecto.multifiestas.RegistroUsuarios;
 
 import javax.swing.JOptionPane;
-import proyecto.multifiestas.RegistroUsuarios.PilaUsuarios;
 
 public class Menu {
      private byte opcion;
