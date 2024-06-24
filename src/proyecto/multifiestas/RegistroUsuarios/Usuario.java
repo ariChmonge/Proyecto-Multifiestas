@@ -1,7 +1,6 @@
 package proyecto.multifiestas.RegistroUsuarios;
 public class Usuario {
-    //Chao
-   
+
     //Atributos
     protected String nombre;
     protected String pApellido;
