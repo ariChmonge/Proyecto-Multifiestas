@@ -3,8 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Arianna/OneDrive/Escritorio/UNIVERSIDAD/2024/II%20CUATRIMESTRE/3.%20ESTRUCTURA%20DE%20DATOS/Proyecto%20Multifiestas/src/proyecto/multifiestas/Main.java</file>
-            <file>file:/C:/Users/Arianna/OneDrive/Escritorio/UNIVERSIDAD/2024/II%20CUATRIMESTRE/3.%20ESTRUCTURA%20DE%20DATOS/Proyecto%20Multifiestas/src/proyecto/multifiestas/Menu.java</file>
+            <file>file:/C:/Users/Arianna/OneDrive/Escritorio/UNIVERSIDAD/2024/II%20CUATRIMESTRE/3.%20ESTRUCTURA%20DE%20DATOS/Proyecto%20Multifiestas/src/proyecto/multifiestas/RegistroUsuarios/PilaUsuarios.java</file>
+            <file>file:/C:/Users/Arianna/OneDrive/Escritorio/UNIVERSIDAD/2024/II%20CUATRIMESTRE/3.%20ESTRUCTURA%20DE%20DATOS/Proyecto%20Multifiestas/src/proyecto/multifiestas/RegistroUsuarios/Usuario.java</file>
+            <file>file:/C:/Users/Arianna/OneDrive/Escritorio/UNIVERSIDAD/2024/II%20CUATRIMESTRE/3.%20ESTRUCTURA%20DE%20DATOS/Proyecto%20Multifiestas/src/proyecto/multifiestas/RegistroUsuarios/Menu.java</file>
+            <file>file:/C:/Users/Arianna/OneDrive/Escritorio/UNIVERSIDAD/2024/II%20CUATRIMESTRE/3.%20ESTRUCTURA%20DE%20DATOS/Proyecto%20Multifiestas/src/proyecto/multifiestas/RegistroUsuarios/NodoUsuario.java</file>
         </group>
     </open-files>
 </project-private>
