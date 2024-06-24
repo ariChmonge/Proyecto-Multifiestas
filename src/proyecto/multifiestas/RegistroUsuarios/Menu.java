@@ -1,5 +1,5 @@
 package proyecto.multifiestas.RegistroUsuarios;
-//hola
+//Hola
 import javax.swing.JOptionPane;
 
 public class Menu {
