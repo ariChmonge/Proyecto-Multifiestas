@@ -45,37 +45,6 @@ public class PilaUsuarios {
         }
     }
     
-    //Agregar usuuario a la pila
-    public void agregarUsuario(){
-        //Usuario dentro de NodoUsuario
-        Usuario u = new Usuario();
-        
-        //Solicitar atributos de nuevo usuario
-        u.setNombre(JOptionPane.showInputDialog(null,
-                "Digite el nombre del usuario a registrar:"));
-        u.setpApellido(JOptionPane.showInputDialog(null,
-                "Digite el primer apellido del usuario a registrar:"));
-        u.setsApellido(JOptionPane.showInputDialog(null,
-                "Digite el segundo apellido del usuario a registrar:"));
-        u.setNickname(JOptionPane.showInputDialog(null,
-                "Digite el nombre de usuario del usuario a registrar:"));
-        u.setContrasena(JOptionPane.showInputDialog(null,
-                "Digite la contrasena del usuario a registrar:"));
-        u.setEstado(JOptionPane.showInputDialog(null,
-                "Digite el estado del usuario a registrar:"));
-        
-        //Crear nuevo nodo con la informacion anterior
-        NodoUsuario nuevo=new NodoUsuario();
-        nuevo.setUsuario(u);
-      
-        if(esVacia()){
-            top=nuevo;
-        }else{
-            nuevo.setSiguiente(top);
-            top=nuevo;
-        }
-    }
-    
     public void inactivarUsuario() {
         if(!esVacia()){
             top=top.getSiguiente();
