@@ -2,25 +2,17 @@ package proyecto.multifiestas;
 
 import javax.swing.JOptionPane;
 import proyecto.multifiestas.RegistroUsuarios.NodoUsuario;
+import proyecto.multifiestas.RegistroUsuarios.PilaUsuarios;
 import proyecto.multifiestas.RegistroUsuarios.Usuario;
 
 public class RegistrarUsuario extends javax.swing.JFrame {
-
-    private NodoUsuario top;//Cima
+    private PilaUsuarios pilaUsuarios;
             
     public RegistrarUsuario() {
         initComponents();
-        this.top = null;
+        pilaUsuarios = new PilaUsuarios();
         setResizable(false);
         setTitle("Registrar Usuario");
-    }
-    
-    public boolean esVacia(){
-        if(top==null){
-            return true;
-        }else{
-            return false;
-        }
     }
   
     private void agregarUsuario() {
@@ -33,18 +25,19 @@ public class RegistrarUsuario extends javax.swing.JFrame {
         u.setNickname(espacioNombreUsuario.getText());
         u.setContrasena(espacioContrasena.getText());
         u.setEstado("Inactivo");//Inactivo al registrar, se activa al iniciar sesion
-        //Crea un nuevo nodo para el usuario
-        NodoUsuario nuevo = new NodoUsuario();
-        nuevo.setUsuario(u);//Rellena el nodo con el usuario
-        //Si la pila esta vacia, cima es el nuevo nodo, si no, es el siguiente
-        if (esVacia()) {
-            top = nuevo;
-        } else {
-            nuevo.setSiguiente(top);
-            top = nuevo;
-        }
+        
+        pilaUsuarios.agregarUsuario(u);
+        
         JOptionPane.showMessageDialog(null, "Usuario registrado!");
+        
         limpiarCampos();
+        
+        //Abre el menu principal despues de registrar a un usuario
+        MenuPrincipal menuPrincipal = new MenuPrincipal();
+        menuPrincipal.setVisible(true);
+        
+        //Cierra RegistrarUsuario
+        this.dispose();
     }
     
     //Limpia los campos del formulario
@@ -54,11 +47,6 @@ public class RegistrarUsuario extends javax.swing.JFrame {
         espacioSegundoApellido.setText("");
         espacioNombreUsuario.setText("");
         espacioContrasena.setText("");
-    }
-    
-    //Getter para cima
-    public NodoUsuario getTop() {
-        return top;
     }
 
     @SuppressWarnings("unchecked")
@@ -74,8 +62,8 @@ public class RegistrarUsuario extends javax.swing.JFrame {
         espacioPrimerApellido = new javax.swing.JTextField();
         espacioSegundoApellido = new javax.swing.JTextField();
         espacioNombreUsuario = new javax.swing.JTextField();
-        espacioContrasena = new javax.swing.JTextField();
         botonRegistrar = new javax.swing.JButton();
+        espacioContrasena = new javax.swing.JTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
         botonVolverMenuPrincipal = new javax.swing.JMenu();
 
@@ -112,12 +100,6 @@ public class RegistrarUsuario extends javax.swing.JFrame {
         espacioNombreUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 espacioNombreUsuarioActionPerformed(evt);
-            }
-        });
-
-        espacioContrasena.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                espacioContrasenaActionPerformed(evt);
             }
         });
 
@@ -160,9 +142,9 @@ public class RegistrarUsuario extends javax.swing.JFrame {
                             .addComponent(espacioPrimerApellido)
                             .addComponent(espacioSegundoApellido)
                             .addComponent(espacioNombreUsuario)
-                            .addComponent(espacioContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(espacioContrasena, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(162, 162, 162)
+                        .addGap(159, 159, 159)
                         .addComponent(botonRegistrar)))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
@@ -189,17 +171,13 @@ public class RegistrarUsuario extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(espacioContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(21, 21, 21)
                 .addComponent(botonRegistrar)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void espacioContrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_espacioContrasenaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_espacioContrasenaActionPerformed
 
     private void botonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarActionPerformed
         agregarUsuario();

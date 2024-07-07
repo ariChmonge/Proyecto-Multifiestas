@@ -1,7 +1,9 @@
 package proyecto.multifiestas;
+import proyecto.multifiestas.RegistroUsuarios.NodoUsuario;
+
 
 public class MenuPrincipal extends javax.swing.JFrame {
-
+    private NodoUsuario top;
     public MenuPrincipal() {
         initComponents();
         setResizable(false);

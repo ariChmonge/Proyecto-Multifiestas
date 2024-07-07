@@ -2,32 +2,41 @@ package proyecto.multifiestas;
 
 import javax.swing.JOptionPane;
 import proyecto.multifiestas.RegistroUsuarios.NodoUsuario;
+import proyecto.multifiestas.RegistroUsuarios.PilaUsuarios;
 import proyecto.multifiestas.RegistroUsuarios.Usuario;
 
 public class IniciarSesion extends javax.swing.JFrame {
-
-    private NodoUsuario top;
+    private PilaUsuarios pilaUsuarios;
     
     public IniciarSesion() {
         initComponents();
+        pilaUsuarios = new PilaUsuarios();
         setResizable(false);
         setTitle("Iniciar Sesión");
         
     }
     
     //Verifica si el nombre de usuario y contrasena coinciden
-    private boolean verificarCredenciales(String nUsuario, String contrasena) {
-        NodoUsuario cima = top;
-        while (cima != null) {
-            Usuario usuario = cima.getUsuario();
-            if (usuario.getNickname().equals(nUsuario) //Verifica el usuario
-                    && usuario.getContrasena().equals(contrasena)) {//Verifica la contrasena
-                usuario.setEstado("Activo"); //Al registrar es inactivo, cuando inicia sesion se vuelve activo
-                return true;
+    private boolean verificarCredenciales() {
+        String nUsuario = campoNombreUsuario.getText();
+        String contrasena = campoContrasena.getText();
+   
+        NodoUsuario aux = pilaUsuarios.getTop();
+        boolean encontrado = false;
+
+        while (aux != null) {
+            Usuario usuario = aux.getUsuario();
+            if (usuario.getNickname().equals(nUsuario) && usuario.getContrasena().equals(contrasena)) {
+                JOptionPane.showMessageDialog(null, "Inicio de sesión exitoso!");
+                encontrado = true;
+                break;
             }
-            cima = cima.getSiguiente();
+            aux = aux.getSiguiente();
+            if (!encontrado) {
+            JOptionPane.showMessageDialog(null, "Acceso denegado.");
+            }
         }
-        return false;
+        return encontrado;
     }
 
     @SuppressWarnings("unchecked")
@@ -38,7 +47,7 @@ public class IniciarSesion extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         campoNombreUsuario = new javax.swing.JTextField();
         botonIniciarSesion = new javax.swing.JButton();
-        campoContrasena = new javax.swing.JPasswordField();
+        campoContrasena = new javax.swing.JTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
 
@@ -79,16 +88,16 @@ public class IniciarSesion extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(148, 148, 148)
                 .addComponent(botonIniciarSesion)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(153, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(43, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(campoNombreUsuario)
-                    .addComponent(campoContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campoContrasena, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))
                 .addGap(38, 38, 38))
         );
         layout.setVerticalGroup(
@@ -110,26 +119,22 @@ public class IniciarSesion extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void campoContrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoContrasenaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_campoContrasenaActionPerformed
-
     private void botonIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonIniciarSesionActionPerformed
-        String nUsuario = campoNombreUsuario.getText();
-        String contrasena = new String(campoContrasena.getPassword());
-        if (verificarCredenciales(nUsuario, contrasena)) {//Llama al metodo que verifica los credenciales
+        if (verificarCredenciales()==true) {//Llama al metodo que verifica los credenciales
             JOptionPane.showMessageDialog(this, "Inicio de sesión exitoso");
             PantallaUsuarioEnSesion pantallaUsuarioEnSesion = new PantallaUsuarioEnSesion();
             pantallaUsuarioEnSesion.setVisible(true);//Muestra la pantalla de usuario en sesion
             this.dispose();//Cierra la pestana de inicio de sesion
-        } else {
-            JOptionPane.showMessageDialog(this, "Acceso denegado");
         }
     }//GEN-LAST:event_botonIniciarSesionActionPerformed
 
     private void campoNombreUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNombreUsuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_campoNombreUsuarioActionPerformed
+
+    private void campoContrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoContrasenaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoContrasenaActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -141,7 +146,7 @@ public class IniciarSesion extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonIniciarSesion;
-    private javax.swing.JPasswordField campoContrasena;
+    private javax.swing.JTextField campoContrasena;
     private javax.swing.JTextField campoNombreUsuario;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
