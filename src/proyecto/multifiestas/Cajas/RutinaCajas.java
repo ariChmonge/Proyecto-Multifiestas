@@ -1,7 +1,5 @@
 package proyecto.multifiestas.Cajas;
 
-package proyecto.multifiestas.Cajas;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
